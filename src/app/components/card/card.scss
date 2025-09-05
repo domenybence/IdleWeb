@@ -1,10 +1,17 @@
+@use "../../../styles.scss" as *;
+
 div {
-    width: 64px;
-    height: 64px;
+    width: 10rem;
+    height: 10rem;
+    background-color: gray;
+    border-radius: 6px;
+    padding: 1rem;
     text-align: center;
 }
 
 img {
-    width: 40px;
-    height: 40px;
+    border-radius: 6px;
+    width: 4rem;
+    height: 4rem;
+    margin: 1rem;
 }

@@ -10,4 +10,8 @@ export class Card {
     @Input() imageName = "placeholder.jpg";
     @Input() alt = "undefined";
     @Input() title = "undefined";
+
+    get backgroundImage(): string {
+        return `url("/images/${this.imageName}")`;
+    }
 }

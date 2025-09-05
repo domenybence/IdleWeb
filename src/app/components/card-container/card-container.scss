@@ -1,3 +1,5 @@
+@use "../../../styles.scss" as *;
+
 div {
     background: rgba(255, 255, 255, 0.2);
     border-radius: 16px;
@@ -6,7 +8,13 @@ div {
     -webkit-backdrop-filter: blur(5px);
     border: 1px solid rgba(72, 53, 53, 0.05);
     text-align: center;
-    min-height: fit-content;
+}
+
+.card-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    gap: 0.3rem;
 }
 
 @media screen and (min-width: 800px) {

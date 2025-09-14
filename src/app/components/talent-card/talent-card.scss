@@ -1,0 +1,51 @@
+$card-width: 100px;
+$card-height: 100px;
+$card-background: #222;
+$card-border-radius: 16px;
+$card-border-width: 2px;
+
+$glow-color: rgb(200, 37, 37);
+$glow-start-distance: 0px;
+$glow-end-distance: 50px;
+$glow-fade-distance: 80px;
+
+body {
+    background-color: black;
+}
+
+.card {
+    position: relative;
+    width: $card-width;
+    height: $card-height;
+    background: $card-background;
+    border-radius: $card-border-radius;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: $card-border-radius;
+    padding: $card-border-width;
+    background: radial-gradient(
+        circle at var(--x, 50%) var(--y, 50%),
+        $glow-color $glow-start-distance,
+        $glow-color $glow-end-distance,
+        rgba(0, 255, 255, 0) $glow-fade-distance
+    );
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+}
+
+.card:hover::before,
+.card:hover::after {
+    opacity: 1;
+}
